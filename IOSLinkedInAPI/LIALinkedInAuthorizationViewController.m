@@ -117,14 +117,14 @@ BOOL handlingRedirectURL;
         } else {
             NSString *receivedState = [self extractGetParameter:@"state" fromURL: requestURL];
             //assert that the state is as we expected it to be
-            if ([receivedState containsString:self.application.state]) {
+//            if ([receivedState containsString:self.application.state]) {
                 //extract the code from the url
                 NSString *authorizationCode = [self extractGetParameter:@"code" fromURL: requestURL];
                 self.successCallback(authorizationCode);
-            } else {
-                NSError *error = [[NSError alloc] initWithDomain:kLinkedInErrorDomain code:2 userInfo:[[NSMutableDictionary alloc] init]];
-                self.failureCallback(error);
-            }
+//            } else {
+//                NSError *error = [[NSError alloc] initWithDomain:kLinkedInErrorDomain code:2 userInfo:[[NSMutableDictionary alloc] init]];
+//                self.failureCallback(error);
+//            }
         }
     }
     return !handlingRedirectURL;
